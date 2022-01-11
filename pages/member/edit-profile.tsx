@@ -88,9 +88,9 @@ export default function EditProfile() {
                                     <div className="image-upload">
                                         <label htmlFor="avatar">
                                             {imagePreview ? (
-                                                <img src={imagePreview} width={90} height={90} style={{borderRadius: '100%'}} alt='Photo Profile'/>
-                                            ) : (
                                                 <img src={`${API_IMG}/${user.avatar}`} width={90} height={90} style={{borderRadius: '100%'}} alt='Photo Profile'/>
+                                            ) : (
+                                                <img src={imagePreview} width={90} height={90} style={{borderRadius: '100%'}} alt='Photo Profile'/>
                                             )}
                                         </label>
                                         <input 
