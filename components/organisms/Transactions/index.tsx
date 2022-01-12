@@ -30,7 +30,7 @@ export default function TransactionsContent(props: TransactionsContentProps) {
             })
         } else {
             setTotal(res.data.total);
-            setData(res.data.history);
+            setData(res.data);
         }
     }, [])
 
@@ -70,7 +70,7 @@ export default function TransactionsContent(props: TransactionsContentProps) {
                             </div>
                         </div>
                     </div>
-                    <LatestTransactions action={true} data={data} />
+                    <LatestTransactions action={true} data={data.history} />
                 </div>
             </main>
         </section>

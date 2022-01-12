@@ -145,17 +145,6 @@ export default function EditProfile() {
                                         onChange={(e) => setUser({...user, phoneNumber: e.target.value})}
                                     />
                                 </div>
-                                {/* <div className="pt-30">
-                                    <Input 
-                                        label='Phone'
-                                        htmlFor='phone'
-                                        type='tel'
-                                        id='phone'
-                                        name='phone'
-                                        desc='phone'
-                                        placeholder='Enter your phone number'
-                                    />
-                                </div> */}
                                 <div className="button-group d-flex flex-column pt-50">
                                     <button type="button" className="btn btn-save fw-medium text-lg text-white rounded-pill" onClick={onSubmit}>Save My Profile</button>
                                 </div>

@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState } from "react"
-import GameItem from "../../molecules/GameItem"
-import { getFeaturedGame } from "../../../services/player";
+import { useCallback, useEffect, useState } from "react";
 import { GameItemTypes } from "../../../services/data-types";
+import { getFeaturedGame } from "../../../services/player";
+import GameItem from "../../molecules/GameItem";
 const API_IMG = process.env.NEXT_PUBLIC_IMG
 
 export default function FeaturedGame() {

@@ -1,5 +1,6 @@
 import { HistoryTransactionTypes } from '../../../services/data-types';
 import Item from '../../organisms/Overview/Item';
+import LoaderItem from '../../organisms/Overview/LoaderItem';
 
 interface LatestTransactionsProps {
     action: boolean;
@@ -8,7 +9,7 @@ interface LatestTransactionsProps {
 
 export default function LatestTransactions(props: LatestTransactionsProps) {
     const { action, data } = props;
-    const API_IMG = process.env.NEXT_PUBLIC_IMG
+    const API_IMG = process.env.NEXT_PUBLIC_IMG;
 
     return (
         <div className="latest-transaction">
@@ -24,21 +25,32 @@ export default function LatestTransactions(props: LatestTransactionsProps) {
                             {action ? (<th scope="col">Actions</th>) : ('')}
                         </tr>
                     </thead>
-                    <tbody>
-                        {data.map((item: HistoryTransactionTypes) => (
-                            <Item
-                                key={item._id}
-                                id={item._id}
-                                image={`${API_IMG}/${item.historyVoucherTopup.thumbnail}`}
-                                title={item.historyVoucherTopup.gameName}
-                                category={item.historyVoucherTopup.category}
-                                item={`${item.historyVoucherTopup.coinQuantity} ${item.historyVoucherTopup.coinName}`}
-                                price={item.value}
-                                status={item.status}
-                                action={action}
-                            />
-                        ))}
-                    </tbody>
+                    {data ? (
+                        <>
+                            <tbody>
+                                {data.length > 0 && data.map((item: HistoryTransactionTypes) => (
+                                    <Item
+                                        key={item._id}
+                                        id={item._id}
+                                        image={`${API_IMG}/${item.historyVoucherTopup.thumbnail}`}
+                                        title={item.historyVoucherTopup.gameName}
+                                        category={item.historyVoucherTopup.category}
+                                        item={`${item.historyVoucherTopup.coinQuantity} ${item.historyVoucherTopup.coinName}`}
+                                        price={item.value}
+                                        status={item.status}
+                                        action={action}
+                                    />
+                                ))}
+                                {data.length < 1 && <td colSpan={4} className='text-center p-5'><h4>Tidak ada history transaction!</h4></td>}
+                            </tbody>
+                        </>
+                    ) : (
+                        <>
+                            <LoaderItem action={action} />
+                            <LoaderItem action={action} />
+                            <LoaderItem action={action} />
+                        </>
+                    )}
                 </table>
             </div>
         </div>
