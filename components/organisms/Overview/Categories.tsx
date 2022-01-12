@@ -15,7 +15,7 @@ export default function Categories(props: CategoriesProps) {
         <div className="col-lg-4 ps-15 pe-15 pb-lg-0 pb-4">
             <div className="categories-card">
                 <div className="d-flex align-items-center mb-24">
-                    <Image src={`/icon/${icon}.svg`} width={60} height={60} alt={`Icon ${children}`}/>
+                    <Image src={`/icon/${icon}.svg`} width={60} height={60} alt={`Icon`}/>
                     <p className="color-palette-1 mb-0 ms-12">{children}</p>
                 </div>
                 <div>
