@@ -50,7 +50,7 @@ export default function SignUpPhoto() {
 
         const res = await setSignUp(data);
         if (res.error) {
-            toast.error(res.message, {
+            toast.error(`Email ${form.email} sudah terdaftar!`, {
                 position: "bottom-right",
                 autoClose: 3000,
                 hideProgressBar: false,

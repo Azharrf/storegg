@@ -1,19 +1,20 @@
+import AOS from 'aos'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import AOS from 'aos'
 import { useEffect } from 'react'
+import Footer from '../components/organisms/Footer'
 import Navbar from '../components/organisms/Navbar'
 import MainBanner from '../components/organisms/Section1'
 import TransactionStep from '../components/organisms/Section2'
 import FeaturedGame from '../components/organisms/Section3'
 import Reached from '../components/organisms/Section4'
 import Story from '../components/organisms/Section5'
-import Footer from '../components/organisms/Footer'
 
 const Home: NextPage = () => {
   useEffect(() => {
-    AOS.init()
+    AOS.init();
   }, [])
+
   return (
     <>
       <Head>
