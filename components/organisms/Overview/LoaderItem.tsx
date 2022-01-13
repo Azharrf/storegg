@@ -95,7 +95,7 @@ export default function LoaderItem(props: ItemProps) {
                             speed={2}
                             width={170}
                             height={80}
-                            viewBox="0 0 400 140"
+                            viewBox="0 0 410 140"
                             backgroundColor="#c1c1e7"
                             foregroundColor="#ecebeb"
                         >
@@ -107,7 +107,7 @@ export default function LoaderItem(props: ItemProps) {
                             speed={2}
                             width={145}
                             height={80}
-                            viewBox="0 0 300 140"
+                            viewBox="0 0 350 140"
                             backgroundColor="#c1c1e7"
                             foregroundColor="#ecebeb"
                         >
