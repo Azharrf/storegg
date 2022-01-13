@@ -1,13 +1,27 @@
 import Link from 'next/link';
 import cx from 'classnames'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { Slide, toast } from 'react-toastify';
 
 export default function SignUpForm() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const router = useRouter();
+
+    const cek = async () => {
+        const getLocalForm = await localStorage.getItem('user-form');
+        const form = JSON.parse(getLocalForm!);
+        if (form) {
+            setName(form.name)
+            setPassword(form.password)
+        }
+    }
+
+    useEffect(() => {
+        cek();
+    }, [cek])
 
     const className = {
         label: cx('form-label text-lg fw-medium color-palette-1 mb-10')
@@ -19,8 +33,22 @@ export default function SignUpForm() {
             name,
             password
         };
-        localStorage.setItem('user-form', JSON.stringify(userForm));
-        router.push('/sign-up-photo')
+
+        if (name === '' || email === '' || password === '') {
+            toast.error('Full Name, Email, Password tidak boleh kosong!', {
+                position: "bottom-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                transition: Slide,
+            });
+        } else {
+            localStorage.setItem('user-form', JSON.stringify(userForm));
+            router.push('/sign-up-photo')
+        }
     }
 
     return (

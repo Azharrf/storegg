@@ -10,7 +10,6 @@ import { getMemberOverview } from '../../services/member';
 
 export default function Member() {
     const [data, setData] = useState<any>({});
-    console.log('overview', data)
 
     const getMemberOverviewAPI = useCallback(async () => {
         const res = await getMemberOverview();

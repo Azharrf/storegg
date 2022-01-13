@@ -60,6 +60,7 @@ export default function SignUpPhoto() {
                 progress: undefined,
                 transition: Slide,
             });
+            router.push('/sign-up');
         } else {
             toast.success('Signup Berhasil!', {
                 position: "bottom-right",
